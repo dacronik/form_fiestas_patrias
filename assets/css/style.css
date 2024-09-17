@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root{
+    --hue-color: 249;
+    --primary-color: hsl(var(--hue-color), 100%, 51%);
+    --secondary-color: hsl(0, 12%, 87%);
+    --shadow: hsl(253, 98%, 40%);
+    --active: hsl(0, 98%, 49%);
+    --firs-color: hsl(249, 100%, 50%);
+    --bg-color: hsl(0, 0%, 7%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100dvh;
+    width: 100dvw;
+    background-color: var(--bg-color);
+    background: linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)), url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    height: 90%;
+    width: 400px;
+    max-height: 700px;
+    border-radius: 20px;
+    margin-top: 60px;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgb(0 0 255 /0.5),rgb(255 255 255 /0.777), rgb(255 0 0 /0.736)),rgb(255 255 255 /0.1); 
+    backdrop-filter: blur(1px);
+    border: 1px solid var(--primary-color);
+}
+.form-buttons{
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+
+    & .btn{
+        background: none;
+        border: none;
+        font-size: 1.625rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    & .active{
+        font-weight: 800;
+        color: var(--primary-color);
+        transition: transform 0.5s ease;
+        transform: translateY(-2px);
+    }
+}
+
+.form-buttons .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 
+        68% 57%, 79% 91%, 50% 70%, 
+        21% 91%, 32% 57%, 2% 35%, 
+        39% 35%
+    );
+    background-color: var(--secondary-color); 
+    z-index: -1;
+    transform: translate(-50%, -50%) scale(0); 
+    transition: transform 0.5s ease;
+}
+
+
+.form-buttons .btn.active::before {
+    transform: translate(-50%, -50%) scale(1);
+    background: var(--secondary-color);
+}
+.form-container{
+    position: relative;
+    height: 90%;
+    overflow: hidden;
+    padding: 0 20px;
+}
+.login-form,
+.register-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform .5s ease;
+}
+.login-form{
+    right: 0;
+    transform: translateX(-100%);
+}
+.register-form{
+    left: 0;
+    transform: translateX(100%);
+}
+.login-form.show{
+    transform: translate(0);
+}
+.register-form.show{
+    transform: translateX(0);
+}
+
+.label{
+    width: max-content;
+    margin: 20px auto;
+    display: grid;
+    grid-template-areas: 'input';
+
+    & .input{
+        grid-area: input;
+        width: 300px;
+        font: inherit;
+        border-radius: 10px;
+        padding: .7rem 1.5rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid var(--primary-color);
+        outline: none;
+    }
+    & .label-name{
+        grid-area: input;
+        z-index: 100;
+        width: max-content;
+        margin-left: 1rem;
+        padding: 0 .5rem;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        color: var(--bg-color);
+        transition: transform .2s ease;
+        transform-origin: center left;
+    }
+    & input:focus{
+        border-left: 2px solid var(--primary-color);
+        border-right: 2px solid var(--primary-color);
+        color: var(--bg-color);
+    }
+    & input:focus+.label-name,
+    input:not(:placeholder-shown)+.label-name{
+        transform: translateY(-85%) scale(.7);
+    }
+}
+.submit{
+    text-align: center;
+    padding: 10px;
+
+    & .submit-btn{
+        width: 80%;
+        height: 45px;
+        border-radius: 55px;
+        background: rgb(255 255 255 / 0.137);
+        color: var(--bg-color);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    & .submit-btn:active{
+        box-shadow: 0 5px 15px var(--shadow);
+        transform: scale(0.95);
+    }
+}
+
+.logo{
+    height: 200px;
+    width: 80%;
+    background-image: url(../img/Logo-chile.png);
+    background-position: center;
+    background-size: cover;
+    margin: 50px 10px 0 30px;
+}
+
+.checklist{
+    padding: 25px;
+
+    & label{
+        color: var(--bg-color);
+    }
+}

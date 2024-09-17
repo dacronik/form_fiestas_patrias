@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & register form</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-buttons">
+            <button class="btn login-btn active">Login</button>
+            <button class="btn register-btn">Registrar</button>
+        </div>
+
+        <div class="form-container">
+            <!-- LOGIN -->
+            <div class="login-form show">
+                <label class="label">
+                    <input type="text" class="input" placeholder=" ">
+                    <span class="label-name">Usuario</span>
+                </label>
+                <label class="label">
+                    <input type="text" class="input" placeholder=" ">
+                    <span class="label-name">Contraseña</span>
+                </label>
+                <div class="submit">
+                    <button class="submit-btn" type="submit">Login</button>
+                </div>
+                <div class="logo"></div>
+            </div>
+
+            <!-- REGISTER -->
+            <div class="register-form">
+                <label class="label">
+                    <input type="text" class="input" placeholder=" ">
+                    <span class="label-name">Usuario</span>
+                </label>
+                <label class="label">
+                    <input type="email" class="input" placeholder=" ">
+                    <span class="label-name">Correo</span>
+                </label>
+                <label class="label">
+                    <input type="text" class="input" placeholder=" ">
+                    <span class="label-name">Contraseña</span>
+                </label>
+                <label class="label">
+                    <input type="text" class="input" placeholder=" ">
+                    <span class="label-name">Confirmar Contraseña</span>
+                </label>
+                <div class="checklist">
+                    <input type="checkbox" id="checklist">
+                    <label for="checklist">Acepta los terminos y condiciones</label>
+                </div>
+                <div class="submit">
+                    <button class="submit-btn" type="submit">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
